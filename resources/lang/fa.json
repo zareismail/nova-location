@@ -1,0 +1,21 @@
+{
+	"Location": "محل",
+	"Locations": "مکان",
+	"Country": "کشور",
+	"Countries": "کشورها",
+	"State": "استان",
+	"States": "استان",
+	"County": "شهرستان",
+	"Counties": "شهرستانها",
+	"City": "شهر",
+	"Cities": "شهرها",
+	"Parish": "محله",
+	"Zone": "منطقه",
+	"Zones": "مناطق",
+	"ID": "شناسه",
+	"Name": "نام",
+	"Parent": "والد", 
+	"Active": "فعال ",
+	"Latitude": "عرض جغرافیایی",
+	"Longitude": "طول جغرافیایی"
+} 
