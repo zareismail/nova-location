@@ -16,7 +16,7 @@ abstract class Resource extends NovaResource
      *
      * @var string
      */
-    public static $model = 'Zareismail\Location\Location';
+    public static $model = 'Zareismail\\NovaLocation\\Location';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -62,6 +62,8 @@ abstract class Resource extends NovaResource
                 ->sortable()
                 ->required()
                 ->rules('required'), 
+
+            Text::make('ISO', 'iso'), 
 
             $this->when(! $request->editing && $belongsToField, $belongsToField),   
         ]; 
