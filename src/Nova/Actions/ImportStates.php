@@ -9,7 +9,7 @@ class ImportStates extends Import
 {    
     public function resource(): string
     {
-        return "Zareismail\\Location\\Nova\\State";
+        return "Zareismail\\NovaLocation\\Nova\\State";
     }
 
     public function filterInsertions(Collection $insertions, Model $model) : Collection
