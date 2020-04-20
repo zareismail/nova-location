@@ -9,7 +9,7 @@ class ImportCities extends Import
 {    
     public function resource(): string
     {
-        return "Zareismail\\Location\\Nova\\City";
+        return "Zareismail\\NovaLocation\\Nova\\City";
     }
 
     public function filterInsertions(Collection $insertions, Model $model) : Collection
