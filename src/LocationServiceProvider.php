@@ -51,7 +51,7 @@ class LocationServiceProvider extends ServiceProvider
     {
         // Auth blueprint
         Blueprint::macro('location', function($name = 'location') {
-            return $this->foreignId("{$name}_id")->constrained('locations');
+            return $this->foreignId("{$name}_id")->nullable()->constrained('locations');
         });
     }
 }
