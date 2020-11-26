@@ -26,21 +26,17 @@ trait Locatable
         return $this->locatable(__FUNCTION__);
     } 
     
-    public function state()
+    public function province()
     {
         return $this->locatable(__FUNCTION__);
-    }  
-    public function county()
-    {
-        return $this->locatable(__FUNCTION__);
-    }  
+    }   
 
     public function city()
     {
         return $this->locatable(__FUNCTION__);
     } 
 
-    public function settlement()
+    public function zone()
     {
         return $this->locatable(__FUNCTION__);
     } 

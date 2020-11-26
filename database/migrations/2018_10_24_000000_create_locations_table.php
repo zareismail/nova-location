@@ -15,12 +15,11 @@ class CreateLocationsTable extends Migration
     { 
         Schema::create('locations', function (Blueprint $table) {
             $table->id();  
-            $table->string('iso')->nullable();
-            $table->naming();   
-            $table->string('resource')
-                  ->default("Zareismail\\\\Location\\\\Nova\\\\Country"); 
-            $table->foreignId('location_id')->constrained(); 
-            $table->coordinates(); 
+            $table->json('name');   
+            $table->string('iso')->nullable(); 
+            $table->string('resource')->default("Zareismail\\\\Location\\\\Nova\\\\Settlement"); 
+            $table->foreignId('location_id')->nullable()->constrained();  
+            $table->coordinates();  
             $table->detail();  
             $table->softDeletes();  
         });    

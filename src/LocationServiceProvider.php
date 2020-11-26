@@ -36,9 +36,9 @@ class LocationServiceProvider extends ServiceProvider
         LaravelNova::resources([
             Nova\Location::class,
             Nova\Country::class,
-            Nova\State::class, 
+            Nova\Province::class, 
             Nova\City::class,
-            Nova\Settlement::class,
+            Nova\Zone::class,
         ]);
     }
 

@@ -15,6 +15,6 @@ class City extends Resource
      */
     public function belongsTo()
     { 
-        return BelongsTo::make(__("State"), "location", State::class)->rules('required');
+        return BelongsTo::make(__("Province"), "location", Province::class)->rules('required');
     }
 }

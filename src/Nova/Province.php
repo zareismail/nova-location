@@ -5,7 +5,7 @@ namespace Zareismail\NovaLocation\Nova;
 use Laravel\Nova\Fields\BelongsTo;
 use Illuminate\Http\Request; 
 
-class State extends Resource
+class Province extends Resource
 {   
     /**
      * Get the realted resource field.
@@ -24,12 +24,12 @@ class State extends Resource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function actions(Request $request)
-    {
-        return [ 
-            (new Actions\ImportCities)->canSee(function($request) {
-                return $request->user()->can('import');
-            })->onlyOnTableRow(),
-        ];
-    }
+    // public function actions(Request $request)
+    // {
+    //     return [ 
+    //         (new Actions\ImportCities)->canSee(function($request) {
+    //             return $request->user()->can('import');
+    //         })->onlyOnTableRow(),
+    //     ];
+    // }
 }

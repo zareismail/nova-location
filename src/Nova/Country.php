@@ -22,12 +22,12 @@ class Country extends Resource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function actions(Request $request)
-    {
-        return [ 
-            (new Actions\ImportStates)->canSee(function($request) {
-                return $request->user()->can('import');
-            })->onlyOnTableRow(),
-        ];
-    }
+    // public function actions(Request $request)
+    // {
+    //     return [ 
+    //         (new Actions\ImportStates)->canSee(function($request) {
+    //             return $request->user()->can('import');
+    //         })->onlyOnTableRow(),
+    //     ];
+    // }
 }

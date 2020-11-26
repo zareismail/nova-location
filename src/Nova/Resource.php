@@ -2,15 +2,17 @@
 
 namespace Zareismail\NovaLocation\Nova;
  
+use Illuminate\Http\Request;   
+use Laravel\Nova\Fields\{ID, Text}; 
 use Laravel\Nova\Http\Requests\NovaRequest; 
-use Laravel\Nova\Resource as NovaResource;
-use Illuminate\Http\Request;    
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text; 
+use Laravel\Nova\Resource as NovaResource; 
+use Armincms\Fields\{Targomaan, InteractsWithJsonTranslator}; 
 
 
 abstract class Resource extends NovaResource
 { 
+    use InteractsWithJsonTranslator;
+
     /**
      * The model the resource corresponds to.
      *
@@ -31,6 +33,15 @@ abstract class Resource extends NovaResource
      * @var array
      */
     public static $search = [
+        'id'
+    ]; 
+
+    /**
+     * The json columns that should be searched.
+     *
+     * @var array
+     */
+    public static $searchJson = [
         'name'
     ]; 
 
@@ -48,24 +59,27 @@ abstract class Resource extends NovaResource
      * @return array
      */
     public function fields(Request $request)
-    {
-        $belongsToField = $this->when(static::belongsTo(), function() { 
-            return static::belongsTo()->sortable()->required()->rules('required');
-        });
-
+    {  
         return[
             ID::make(__("ID"), 'id')->sortable(),
 
-            $this->when($request->editing && $belongsToField, $belongsToField),  
+            $this->when(static::belongsTo(), function() {
+                return static::belongsTo()
+                            ->withoutTrashed()
+                            ->searchable()
+                            ->sortable()
+                            ->required()
+                            ->rules('required');
+            }), 
 
-            Text::make(__("Name"), 'name')
-                ->sortable()
-                ->required()
-                ->rules('required'), 
+            Targomaan::make([
+                Text::make(__("Name"), 'name')
+                    ->sortable()
+                    ->required()
+                    ->rules('required'), 
+            ]),
 
-            Text::make('ISO', 'iso'), 
-
-            $this->when(! $request->editing && $belongsToField, $belongsToField),   
+            Text::make('ISO', 'iso'),    
         ]; 
     } 
 
@@ -86,6 +100,6 @@ abstract class Resource extends NovaResource
      */
     public static function indexQuery(NovaRequest $request, $query)
     {
-        return $query->where($query->qualifyColumn('resource'), static::class);
+        return $query->resource(static::class);
     } 
 }
