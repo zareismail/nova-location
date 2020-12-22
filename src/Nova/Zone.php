@@ -3,12 +3,18 @@
 namespace Zareismail\NovaLocation\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo; 
+use Zareismail\Fields\BelongsTo; 
 use GeneaLabs\NovaMapMarkerField\MapMarker;
     
 
 class Zone extends Resource
 {   
+    /**
+     * The model the resource corresponds to.
+     *
+     * @var string
+     */
+    public static $model = \Zareismail\NovaLocation\Models\Zone::class;
 
     /**
      * Get the fields displayed by the resource.

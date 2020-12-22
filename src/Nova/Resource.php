@@ -14,13 +14,6 @@ abstract class Resource extends NovaResource
     use InteractsWithJsonTranslator;
 
     /**
-     * The model the resource corresponds to.
-     *
-     * @var string
-     */
-    public static $model = 'Zareismail\\NovaLocation\\Location';
-
-    /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string

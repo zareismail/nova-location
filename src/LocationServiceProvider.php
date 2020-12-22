@@ -24,7 +24,10 @@ class LocationServiceProvider extends ServiceProvider
 
         LaravelNova::serving([$this, 'servingNova']);   
 
-        Gate::policy(Location::class, Policies\Location::class); 
+        Gate::policy(Models\Country::class, Policies\Location::class); 
+        Gate::policy(Models\Province::class, Policies\Location::class); 
+        Gate::policy(Models\City::class, Policies\Location::class); 
+        Gate::policy(Models\Zone::class, Policies\Location::class); 
     } 
 
     /**
@@ -33,8 +36,7 @@ class LocationServiceProvider extends ServiceProvider
      */
     public function servingNova()
     {
-        LaravelNova::resources([
-            Nova\Location::class,
+        LaravelNova::resources([ 
             Nova\Country::class,
             Nova\Province::class, 
             Nova\City::class,

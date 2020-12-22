@@ -1,6 +1,6 @@
 <?php 
 
-namespace Zareismail\NovaLocation;
+namespace Zareismail\NovaLocation\Models;
  
 use Illuminate\Database\Eloquent\{Model ,SoftDeletes}; 
 use Laravel\Nova\Nova;
@@ -16,6 +16,13 @@ class Location extends Model
      * @var bool
      */
     public $timestamps = false; 
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'locations';
 
     /**
      * The attributes that should be cast.
@@ -43,7 +50,7 @@ class Location extends Model
      */
     public function location()
     {
-        return $this->belongsTo(static::class, 'location_id');
+        return $this->belongsTo(Location::class, 'location_id');
     } 
  
     /**
@@ -53,7 +60,7 @@ class Location extends Model
      */
     public function locations()
     {
-        return $this->hasMany(static::class, 'location_id');
+        return $this->hasMany(Location::class, 'location_id');
     } 
  
     /**

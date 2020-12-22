@@ -9,7 +9,8 @@
     "require": {
         "php": ">=7.1.0", 
         "genealabs/nova-map-marker-field": "^0.3.0",
-        "armincms/nova-targomaan": "~0.1"
+        "armincms/nova-targomaan": "~0.1",
+        "zareismail/nova-cascade": "~0.1"
     },
     "autoload": {
         "psr-4": {
