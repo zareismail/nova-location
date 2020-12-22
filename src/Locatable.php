@@ -1,8 +1,7 @@
 <?php 
 namespace Zareismail\NovaLocation;
- 
-use Illuminate\Database\Eloquent\Model;
-use Laravel\Nova\Nova;
+  
+use Zareismail\NovaLocation\Models\Location;
 
 trait Locatable 
 {     
