@@ -31,8 +31,8 @@ class Zone extends Resource
                 ->longitude('longitude')
                 ->defaultLatitude(41.823611)
                 ->defaultLongitude(-71.422222)
-                ->searchProvider('google')
-                ->searchProviderKey('AIzaSyCiHD51ha_m3EeC6R0MYS6WYRQJxV8gHqw') 
+                ->searchProvider(Map::option('provider') ?? 'esri')
+                ->searchProviderKey(Map::option('key') ?? '') 
                 ->centerCircle(50, 'red', 1, .5), 
         ]);
     }
