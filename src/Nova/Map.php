@@ -42,6 +42,9 @@ class Map extends BiosResource
             'esri'  => 'Esri',
             'google'    => 'Google',
             'algolia'   => 'Algolia',
+            'opencage'  => 'OpenCage',
+            'locationid'=> 'LocationIQ',
+            'openstreetmap' => 'OpenStreetMap',
         ];
     }
 }
