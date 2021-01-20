@@ -3,8 +3,7 @@
 namespace Zareismail\NovaLocation\Nova;
 
 use Illuminate\Http\Request;
-use Zareismail\Fields\BelongsTo; 
-use GeneaLabs\NovaMapMarkerField\MapMarker;
+use Zareismail\Fields\BelongsTo;  
     
 
 class Zone extends Resource
@@ -25,15 +24,7 @@ class Zone extends Resource
     public function fields(Request $request)
     {  
         return array_merge(parent::fields($request), [ 
-            MapMarker::make('Google Location', 'google_location')
-                ->defaultZoom(18)
-                ->latitude('latitude')
-                ->longitude('longitude')
-                ->defaultLatitude(41.823611)
-                ->defaultLongitude(-71.422222)
-                ->searchProvider(Map::option('provider') ?? 'esri')
-                ->searchProviderKey(Map::option('key') ?? '') 
-                ->centerCircle(50, 'red', 1, .5), 
+            Fields\MapMarker::make('Google Location', 'google_location'), 
         ]);
     }
 
