@@ -8,18 +8,7 @@ use Zareismail\NovaLocation\Location as Model;
 
 class Location
 {
-    use HandlesAuthorization;
-
-    /**
-     * Determine whether the user can view any policy roles.
-     *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
-     * @return mixed
-     */
-    public function viewAny(Authenticatable $user)
-    {
-        return true;
-    }
+    use HandlesAuthorization; 
 
     /**
      * Determine whether the user can view the policy role.
@@ -90,17 +79,5 @@ class Location
     public function forceDelete(Authenticatable $user, Model $location)
     {
         return true;
-    } 
-
-    /**
-     * Determine whether the user can add location to the location.
-     *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
-     * @param  \Zareismail\Location\Location  $location
-     * @return mixed
-     */
-    public function addLocation(Authenticatable $user, Model $location)
-    {
-        return false;
-    } 
+    }  
 }
